@@ -1,0 +1,31 @@
+<div class="example-container">
+	<div class="container col-md-5">
+		<h1 class="d-flex justify-content-center">details Component</h1>
+    <mat-grid-list cols="2" rowHeight=100px >
+    	<form  [formGroup]="myForm" ngForm>
+  	
+      <mat-form-field>
+        <input matInput placeholder="Email" required  formControlName="email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Name" required  formControlName="name">
+      </mat-form-field>
+      <mat-form-field >
+      	<span matPrefix>+91 &nbsp;</span>
+        <input matInput type="number" placeholder="Mobile" required  formControlName="mobile">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="description" required  formControlName="description">
+      </mat-form-field>
+  <div class="sign">
+  	<label for="file">Agreement sign</label>
+        <input type="file"class="form-control" id="file" required  formControlName="file">
+    </div>
+  {{myForm.value | json}}
+
+  <button mat-raised-button  [disabled]="myForm.invalid" (click)="userEditNow()" color="primary">Submit</button>
+</form>
+    </mat-grid-list>
+</div>
+<div style="margin-top:  60px"></div>
+</div>
