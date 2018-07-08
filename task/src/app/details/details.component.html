@@ -2,7 +2,7 @@
 	<div class="container col-md-5">
 		<h1 class="d-flex justify-content-center">details Component</h1>
     <mat-grid-list cols="2" rowHeight=100px >
-    	<form  [formGroup]="myForm" ngForm>
+    	<form  [formGroup]="myForm" ngForm (ngSubmit)="userEditNow()">
   	
       <mat-form-field>
         <input matInput placeholder="Email" required  formControlName="email">
@@ -19,11 +19,11 @@
       </mat-form-field>
   <div class="sign">
   	<label for="file">Agreement sign</label>
-        <input type="file"class="form-control" id="file" required  formControlName="file">
+        <input type="file" class="form-control" id="file" required>
     </div>
   {{myForm.value | json}}
 
-  <button mat-raised-button  [disabled]="myForm.invalid" (click)="userEditNow()" color="primary">Submit</button>
+  <button mat-raised-button  [disabled]="myForm.invalid" color="primary">Submit</button>
 </form>
     </mat-grid-list>
 </div>

@@ -5,16 +5,19 @@
     </div>
     <div>
       <h2>details:</h2>
-      <button mat-raised-button class="bg-success text-white float-right">Submit</button>
     </div>
     <div class="space">
-      <h4><b>Name:</b><span>{{data}}</span></h4>
-      <h4><b>Email:</b><span></span></h4>
-      <h4><b>Mobile:</b><span>xxxxxxxx</span></h4>
-      <h4><b>Description:</b><span>xxxxxxxx</span></h4>
-      <h4><b>Agreement sign:</b></h4>
-      <div class="col-md-4">
-  </div>
+      <h4><b>Name:</b><span>{{data.name}}</span></h4>
+      <h4><b>Email:</b><span>{{data.email}}</span></h4>
+      <h4><b>Mobile:</b><span>{{data.mobile}}</span></h4>
+      <h4><b>Description:</b><span>{{data.description}}</span></h4>
+      <!-- <h4><b>Agreement sign:</b><img [src]="data.fileURL"></h4> -->
+
     </div>
   </div>
+      <h4><b>Agreement sign:</b><br>
+        <img id="myImg" width="50%"></h4>
+    <form (ngSubmit)="dataSubmit()">
+    <button mat-raised-button type="submit" class="bg-success text-white float-right">Submit</button>
+  </form>
 </div>

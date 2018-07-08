@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 import {MatButtonModule,
  MatCheckboxModule,
@@ -13,6 +14,7 @@ import {MatButtonModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewServiceService } from './services/view-service.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ViewServiceService } from './services/view-service.service';
     MatFormFieldModule,
     MatAutocompleteModule,
     MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ViewServiceService],
   bootstrap: [AppComponent]

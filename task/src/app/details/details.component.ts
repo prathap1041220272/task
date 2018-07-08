@@ -1,5 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder } from "@angular/forms";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class DetailsComponent implements OnInit {
   myForm = new FormGroup({});
   	@Output() dataSubmit = new EventEmitter();
 	editform:any;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private router:Router) {
 
   this.myForm = this.fb.group({
       email: ['', Validators.required],
@@ -25,10 +26,14 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  userEditNow(){
-  	this.dataSubmit.emit(this.myForm);
-  	this.editform = this.myForm;
-    // this.viewServ.editUser(this.myForm);
-    console.log(this.myForm)
+  userEditNow() {
+    // this.dataSubmit.emit(this.myForm);
+    const file = (document.getElementById('file') as HTMLInputElement).files[0];
+    const fileURL = URL.createObjectURL(file);
+    const data = Object.assign({}, this.myForm.value, { fileURL })
+
+
+    // console.log(data);
+    return this.router.navigate(['/view'], { queryParams: data });
   }
 }
